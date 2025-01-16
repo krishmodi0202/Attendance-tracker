@@ -1,0 +1,230 @@
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient(#a23982, #1f1013);
+  animation: fadeIn 1s ease-out;
+  overflow-x: hidden; /* Ensure horizontal scrolling is disabled */
+}
+
+
+.app {
+  min-height: 50vh;
+  color: #ffffff;
+  padding: 2rem;
+  padding-bottom: 6rem;
+  position: relative;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  padding-top: 200px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 200;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  margin-top: -5%;
+  background-color: rgba(45, 55, 72, 0.7);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.input-group {
+  display: flex;
+  gap: 1rem;
+}
+
+input[type="number"] {
+  flex-grow: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: rgba(74, 85, 104, 0.7);
+  color: #ffffff;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #a23982;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #a23982;
+  transform: scale(1.05);
+}
+
+.day-selections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.day-selection {
+  display: flex;
+  flex-direction: column;
+}
+
+select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: rgba(74, 85, 104, 0.7);
+  color: #ffffff;
+  border: none;
+  border-radius: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-value {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.light {
+  position: absolute;
+  width: 0px;
+  opacity: .75;
+  background-color: white;
+  box-shadow: #e9f1f1 0px 0px 20px 2px;
+  opacity: 0;
+  top: 100vh;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+}
+
+.x1 { animation: floatUp 4s infinite linear; transform: scale(1.0); }
+.x2 { animation: floatUp 7s infinite linear; transform: scale(1.6); left: 15%; }
+.x3 { animation: floatUp 2.5s infinite linear; transform: scale(.5); left: -15%; }
+.x4 { animation: floatUp 4.5s infinite linear; transform: scale(1.2); left: -34%; }
+.x5 { animation: floatUp 8s infinite linear; transform: scale(2.2); left: -57%; }
+.x6 { animation: floatUp 3s infinite linear; transform: scale(.8); left: -81%; }
+.x7 { animation: floatUp 5.3s infinite linear; transform: scale(3.2); left: 37%; }
+.x8 { animation: floatUp 4.7s infinite linear; transform: scale(1.7); left: 62%; }
+.x9 { animation: floatUp 4.1s infinite linear; transform: scale(0.9); left: 85%; }
+
+@keyframes floatUp {
+  0% { top: 100vh; opacity: 0; }
+  25% { opacity: 1; }
+  50% { top: 0vh; opacity: .8; }
+  75% { opacity: 1; }
+  100% { top: -100vh; opacity: 0; }
+}
+
+.header {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-weight: 200;
+  color: white;
+  font-size: 2em;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+#head1, #head2, #head3, #head4, #head5 {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .input-group {
+    flex-direction: column;
+  }
+
+  .day-selections {
+    grid-template-columns: 1fr;
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    font-size: 1.5em;
+  }
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(45, 55, 72, 0.295);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer p {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    font-size: 0.8rem;
+  }
+}
+
