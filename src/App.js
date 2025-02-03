@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { reportWebVitals } from 'web-vitals';
 
 function App() {
   const [credits, setCredits] = useState('');
